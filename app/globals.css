@@ -23,3 +23,17 @@
 @media(max-width:700px){.desktop-break{display:none}.featured-project .project-art{border-bottom:1px solid #30343b}.nav-contact,.hero-socials a,.contact-socials a,.project-footer a{min-height:44px}.hero-socials{margin-top:15px}.nav-contact{padding-block:12px}.project-footer{align-items:center;padding-top:10px}.hero-art{display:none}.contact-form input,.contact-form textarea{font-size:16px}.contact-form input::placeholder,.contact-form textarea::placeholder{font-size:13px}.contact-form input{min-height:48px}.contact-grid,.project-grid{grid-template-columns:minmax(0,1fr)}.organization-manipal{width:240px}.company-line{gap:15px}}
 @media(max-width:370px){.form-row{grid-template-columns:minmax(0,1fr)}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}.project-card:hover,.primary:hover,.contact-socials a:hover,.hero-socials a:hover{transform:none}}
+
+/* Clearer section hierarchy and navigation feedback within the existing layout. */
+.desktop-nav a{position:relative;padding-block:12px}
+.desktop-nav a::after{content:'';position:absolute;left:0;right:0;bottom:4px;height:1px;background:var(--blue);transform:scaleX(0);transform-origin:left;transition:transform .2s ease}
+.desktop-nav a:hover::after,.desktop-nav a[aria-current="location"]::after{transform:scaleX(1)}
+.desktop-nav a[aria-current="location"],.mobile-nav a[aria-current="location"],.nav-contact[aria-current="location"]{color:var(--blue)}
+.hero h1{font-weight:600;letter-spacing:-5.5px}
+.hero-description{max-width:490px}
+.section-heading h2,.about-layout h2{font-size:clamp(32px,3.8vw,48px);line-height:1.17}
+.section-heading{margin-bottom:54px}
+.project-card:focus-within{border-color:var(--blue);box-shadow:0 0 0 1px #8aaef133}
+@media(hover:hover){.project-card:hover{box-shadow:0 18px 35px #00000020}}
+@media(max-width:700px){.hero h1{letter-spacing:-4px}.section-heading h2,.about-layout h2{font-size:32px}.section-heading{margin-bottom:32px}.mobile-nav a[aria-current="location"]{border-left:2px solid var(--blue);padding-left:12px}}
+@media(prefers-reduced-motion:reduce){.desktop-nav a::after{transition:none}}

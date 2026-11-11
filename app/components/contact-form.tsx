@@ -14,8 +14,8 @@ export function ContactForm({ configured }: { configured: boolean }) {
     setState('loading'); setMessage('');
     try {
       const response = await fetch('/api/contact', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ ...values, startedAt: startedAt.current }), signal: AbortSignal.timeout(20000) });
-      const result = await response.json();
-      if (!response.ok || result.success !== true) throw new Error(result.error || 'Your message could not be sent. Please try email instead.');
+      const result = await response.json().catch(() => null);
+      if (!response.ok || result?.success !== true) throw new Error(result?.error || 'Your message could not be sent. Please email me directly.');
       setState('success'); setMessage('Your message has been accepted for delivery. Thanks for reaching out!'); form.reset(); startedAt.current = Date.now();
     } catch (error) {
       setState('error');
@@ -28,7 +28,7 @@ export function ContactForm({ configured }: { configured: boolean }) {
     <label htmlFor="message">Message<textarea id="message" name="message" placeholder="Tell me a little about it..." required minLength={10} maxLength={5000} rows={5} /></label>
     <div className="honeypot" aria-hidden="true"><label htmlFor="website">Leave this field empty<input id="website" name="website" tabIndex={-1} autoComplete="off" /></label></div>
     {!configured && <p id="email-setup-note" className="setup-note">The contact form is awaiting email setup. Please use the direct email link for now.</p>}
-    <div className="form-bottom"><span>{configured ? 'Your message goes straight to my inbox.' : 'You can always reach me by email.'}</span><button className="button primary" disabled={!configured || state === 'loading'} type="submit">{state === 'loading' ? <>Sending <LoaderCircle className="spinner" size={16} /></> : <>Send message <ArrowUpRight size={16} /></>}</button></div>
+    <div className="form-bottom"><span>{configured ? 'Your message is sent securely.' : 'You can always reach me by email.'}</span><button className="button primary" disabled={!configured || state === 'loading'} type="submit">{state === 'loading' ? <>Sending <LoaderCircle className="spinner" size={16} /></> : <>Send message <ArrowUpRight size={16} /></>}</button></div>
     <p className={`form-status ${state}`} role="status" aria-live="polite">{state === 'success' && <CheckCircle2 size={16} />}{message}</p>
   </form>;
 }

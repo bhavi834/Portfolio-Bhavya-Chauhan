@@ -55,7 +55,7 @@ The six contact tests cover missing setup, malformed and oversized input, cross-
 
 Final automated verification passed: lint with zero warnings, TypeScript, all six contact tests, and the production build. Checks against the running production server verified SEO metadata, one primary heading, internal navigation targets, all 22 rendered image responses (including optimized organization marks), local SVG assets, the resume PDF, and the expected HTTP 503 when email credentials are absent. The production page has 147 KB of first-load JavaScript.
 
-Responsive rules, semantic controls, focus styles and reduced-motion behavior were reviewed in source. Phone/tablet visual checks and interactive accessibility QA remain incomplete: the portfolio Chrome window was unavailable, and automatic approval review blocked selecting an unrelated window. Do not treat those checks as passed. Before release, review the navigation, project cards and contact form at 320, 375, 768 and 1280 pixel widths, including keyboard navigation and reduced motion.
+Responsive rules, semantic controls, focus styles and reduced-motion behavior were reviewed in source. Phone/tablet visual checks and interactive accessibility QA remain incomplete because the local browser preview host was unavailable. Before release, review the navigation, project cards and contact form at 320, 375, 768 and 1280 pixel widths, including keyboard navigation and reduced motion.
 
 The earlier logo-download blocker has been resolved. All four official organization marks are served locally, with their source URLs documented in `public/logos/SOURCES.md`.
 
