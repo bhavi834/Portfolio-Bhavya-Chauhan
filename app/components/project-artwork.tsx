@@ -1,0 +1,8 @@
+import { ArrowRight, HardHat, HeartHandshake, Package, PawPrint } from 'lucide-react';
+
+/** Illustrative workflows, never screenshots or measured project results. */
+export function ProjectArtwork({ index }: { index: number }) {
+  if (index === 0) return <div className="vision-diagram"><div className="detection-frame"><span /><span /><span /><span /><HardHat size={77} strokeWidth={1} /></div><div className="workflow-steps"><span>Video input</span><ArrowRight size={13} /><span>YOLO detection</span><ArrowRight size={13} /><span>PPE checks</span></div></div>;
+  if (index === 1) return <div className="care-diagram"><div><PawPrint size={31} strokeWidth={1.2} /><span>Adoption</span></div><div><HeartHandshake size={31} strokeWidth={1.2} /><span>Care</span></div><div><Package size={31} strokeWidth={1.2} /><span>Supplies</span></div></div>;
+  return <div className="alert-diagram"><svg viewBox="0 0 320 100" fill="none" aria-hidden="true"><g stroke="currentColor" strokeWidth="1"><path d="M16 12H84C125 12 116 50 160 50H300M16 50H300M16 88H84C125 88 116 50 160 50" /><path d="M200 50L229 23M200 50L229 77" /></g><g fill="currentColor"><circle cx="16" cy="12" r="3" /><circle cx="16" cy="50" r="3" /><circle cx="16" cy="88" r="3" /><circle cx="229" cy="23" r="3" /><circle cx="300" cy="50" r="4" /><circle cx="229" cy="77" r="3" /></g><circle cx="160" cy="50" r="19" fill="#24232d" stroke="currentColor" /><circle cx="160" cy="50" r="5" fill="currentColor" /></svg><div className="workflow-steps"><span>Group alerts</span><ArrowRight size={13} /><span>Analyze</span><ArrowRight size={13} /><span>Prioritize</span></div></div>;
+}

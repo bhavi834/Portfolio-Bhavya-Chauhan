@@ -5,3 +5,8 @@ out/
 !.env.example
 *.log
 .vercel/
+*.tsbuildinfo
+tmp/
+output/
+repos-check.json
+audit-check.json
